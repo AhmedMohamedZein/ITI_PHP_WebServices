@@ -9,13 +9,18 @@
 </head>
 <body>
     <main class="container">
-        <div>
-            <select id="myTextId" name="" id="">
-                <option value="-" selected>-- City --</option>
-                <option value=""></option>
+        <form action="">
+            <select name="Cities" id="">
+                <option value="" selected>-- City --</option>
+                <?php 
+                    //Here we will generate the egyption cities as an opetion <option value=".city.">.city.</option>
+                    foreach ($cities as $city) {
+                        
+                    }
+                ?>
             </select>
             <button type="button" id="Add" value="">GET Weather</button>
-        </div>
+        </form>
     </main>
     <script src="scripts/selectCity.js" defer></script>
 </body>
