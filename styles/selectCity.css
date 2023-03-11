@@ -8,7 +8,8 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    /* justify-content: center; */
     align-items: center;
     background-color: #F6EEC9;
 }
@@ -34,34 +35,6 @@
     color: #F6EEC9;
 }
 
-#tasks-container {
-    margin-top: 2em;
-    border: solid 5px #FFA36C;
-    border-radius: 4vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-}
-
-#tasks-container div {
-    margin: 1em;
-    width: 50vh;
-    /* height: 5vh; */
-    display: flex;
-}
-
-#tasks-container div span {
-    padding: 7px;
-    width: 30vh;
-    /* height: 5vh; */
-    border-radius: 4vh;
-    border: none;
-    background-color: #6F9A8D;
-    text-align: center;
-    color: #F6EEC9;
-    font-size: 2.5vh;
-    flex-grow: 1;
-}
 
 #Add:hover {
     width: 18vh;
@@ -88,3 +61,11 @@
     font-size: 2.5vh;
 }
 
+section {
+    padding: 10px;
+    width: 90vh !important;
+    border: solid #0E5E6F 5px;
+    border-radius: 30px;
+    background-color: #0E5E6F;
+    height: 25vh !important; 
+}
