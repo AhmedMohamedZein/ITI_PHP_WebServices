@@ -1,11 +1,13 @@
 <?php 
 require_once('functions.php');
+require_once('vendor/autoload.php');
+require_once('guzzle.php');
 
 if ( isset ( $_POST["cities"] ) ) {
     $myCity = $_POST["cities"];
 
-    $data = getWeather($myCity);
-    
+    // $data = getDataUsingCurl($myCity); // Using CURL
+    $data = getDataUsingGuzzle ($myCity); // Using Guzzle
     $weather_name = $data["name"];
     $weather_description = $data["weather"][0]["description"];
     $weather = $data["weather"][0]["main"];

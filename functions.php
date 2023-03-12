@@ -1,6 +1,6 @@
 <?php 
 
-function getWeather ($myCity) { // using curl
+function getDataUsingCurl ($myCity) { // using curl
     $apiKey = '453a29cd4f2dd9dcd3c7dc07a477d04c';
     $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=".$myCity."&appid=".$apiKey;
     $ch = curl_init(); // handler

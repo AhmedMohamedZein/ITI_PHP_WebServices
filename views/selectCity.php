@@ -14,7 +14,7 @@
             if ( isset ($data) ) {
                 echo '
                 <section style="color: #F6EEC9;">
-                    <div style="padding-left : 20px ;">
+                    <div>
                         <h1> Weather Status for '.$weather_name.' </h1>
                         <h4>'.date("l jS \of F").'</h4>
                         <h4>'.$temp_min - 273.15.' C'.'</h4>     
