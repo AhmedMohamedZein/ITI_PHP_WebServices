@@ -39,6 +39,5 @@
             <button type="submit" id="Add" value="">GET Weather</button>
         </form>
     </main>
-    <script src="scripts/selectCity.js" defer></script>
 </body>
 </html>
