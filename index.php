@@ -1,7 +1,5 @@
 <?php 
-require_once('functions.php');
 require_once('vendor/autoload.php');
-require_once('guzzle.php');
 
 if ( isset ( $_POST["cities"] ) ) {
     $myCity = $_POST["cities"];
