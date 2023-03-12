@@ -11,16 +11,16 @@
 
     <main class="container">
         <?php 
-            if ( isset ($data) ) {
+            if ( isset ($weatherStatus) ) {
                 echo '
                 <section style="color: #F6EEC9;">
                     <div>
-                        <h1> Weather Status for '.$weather_name.' </h1>
+                        <h1> Weather Status for '.$weatherStatus["weatherName"].' </h1>
                         <h4>'.date("l jS \of F").'</h4>
-                        <h4>'.$temp_min - 273.15.' C'.'</h4>     
-                        <h4>'.$temp_max - 273.15.' C'.'</h4>
-                        <h4>'.$humidity.'%'.' </h4>
-                        <h4>'.$wind.' Km/h'.' </h4>
+                        <h4>'.$weatherStatus["temp_min"] - 273.15.' C'.'</h4>     
+                        <h4>'.$weatherStatus["temp_max"] - 273.15.' C'.'</h4>
+                        <h4>'.$weatherStatus["humidity"].'%'.' </h4>
+                        <h4>'.$weatherStatus["wind"].' Km/h'.' </h4>
                     </div>
                 </section>
                 ';

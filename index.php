@@ -6,13 +6,14 @@ if ( isset ( $_POST["cities"] ) ) {
 
     // $data = getDataUsingCurl($myCity); // Using CURL
     $data = getDataUsingGuzzle ($myCity); // Using Guzzle
-    $weather_name = $data["name"];
-    $weather_description = $data["weather"][0]["description"];
-    $weather = $data["weather"][0]["main"];
-    $temp_min = $data["main"]["temp_min"];
-    $temp_max = $data["main"]["temp_max"];    
-    $humidity = $data["main"]["humidity"];
-    $wind = $data["wind"]["speed"];
+    // using Associative Array
+    $weatherStatus["weatherName"] = $data["name"];
+    $weatherStatus["weatherDescription"] = $data["weather"][0]["description"];
+    $weatherStatus["weather"] = $data["weather"][0]["main"];
+    $weatherStatus["temp_min"] = $data["main"]["temp_min"];
+    $weatherStatus["temp_max"] = $data["main"]["temp_max"];    
+    $weatherStatus["humidity"] = $data["main"]["humidity"];
+    $weatherStatus["wind"] = $data["wind"]["speed"];
 }
 else {
     $jsonFile = file_get_contents('eg.json');
