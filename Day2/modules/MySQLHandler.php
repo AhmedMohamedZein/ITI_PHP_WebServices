@@ -157,8 +157,8 @@ class MySQLHandler {
     }
 
     private function debug($sql) {
-        if (__Debug__Mode__ === 1)
-            echo "<h5>Sent Query: </h5>" . $sql . "<br/> <br/>";
+        // if (__Debug__Mode__ === 1)
+        //     echo "<h5>Sent Query: </h5>" . $sql . "<br/> <br/>";
     }
 
 }
