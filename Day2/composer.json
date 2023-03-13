@@ -1,6 +1,6 @@
 {
     "description": "A shop api for education purposes",
     "autoload": {
-        "files": ["src/config.php","src/MySQLHandler.php"]
+        "files": ["config.php","modules/MySQLHandler.php" , "routes/products.php"]
     }
 }
