@@ -2,83 +2,61 @@
 
 // database integration
 
-function getAllProducts () {
-    
-    $client = new MySQLHandler ('products');
-    try {
-        $client->connect();
-    } catch (Exception $exception) {
-        http_response_code(500);
-        throw new Exception ('internal server error!');
-    }
-    $data = $client->get_data();
-    return $data ;
-}
+class Product {
 
-function getSpecificProduct ($id) {
-    if ( !is_numeric($id) ) {
-        http_response_code(404);
-        throw new Exception ('Product id must be a number');
-    }
-    else {
-        $client = new MySQLHandler ('products');
+    private $_client ;
+
+    function __construct() {
         try {
-            $client->connect();
+            $this->_client = new MySQLHandler ('products');
+            $this->_client->connect();
         } catch (Exception $exception) {
             http_response_code(500);
             throw new Exception ('internal server error!');
         }
-        $data = $client->get_record_by_id($id);
-        if ( empty($data) ) {
+    }
+
+    public function getAllProducts () {
+        $data =  $this->_client->get_data();
+        return $data ;
+    }
+    
+    public function getSpecificProduct ($id) {
+        if ( !is_numeric($id) ) {
             http_response_code(404);
-            throw new Exception ("Resource dosn't exist");
+            throw new Exception ('Product id must be a number');
         }
-        return $data ; 
+        else {
+            $data =  $this->_client->get_record_by_id($id);
+            if ( empty($data) ) {
+                http_response_code(404);
+                throw new Exception ("Resource dosn't exist");
+            }
+            return $data ; 
+        }
     }
-}
-
-function createProduct ($productData) { //$productData is a associate array
-    $client = new MySQLHandler ('products');
-    try {
-        $client->connect();
-    } catch (Exception $exception) {
-        http_response_code(500);
-        throw new Exception ('internal server error!');
-    }
-    $client->save($productData);
     
-    // return the inserted data
-    $data = getSpecificProduct($productData["id"]);
-    return $data ;
-}
+    public function createProduct ($productData) { //$productData is a associate array
 
-function updateProduct($newProductData, $productID) {
-    $client = new MySQLHandler ('products');
-    
-    // check first if the old product exists
-    getSpecificProduct($productID); // if no will throw an error 404
-    try {
-        $client->connect();
-    } catch (Exception $exception) {
-        http_response_code(500);
-        throw new Exception ('internal server error!');
+        // Create Product
+        $this->_client->save($productData);
+        
+        // return the inserted data
+        $data = getSpecificProduct($productData["id"]);
+        return $data ;
     }
-    $client->update($newProductData, $productID);
-
-        // return the updated data
-    $data = getSpecificProduct($productID);
-    return $data ;
-}
-
-function delteProduct ($id) {
-    $client = new MySQLHandler ('products');
     
-    try {
-        $client->connect();
-    } catch (Exception $exception) {
-        http_response_code(500);
-        throw new Exception ('internal server error!');
+    public function updateProduct($newProductData, $productID) {
+            //update Data
+        $this->_client->update($newProductData, $productID);
+    
+            // return the updated data
+        $data = getSpecificProduct($productID);
+        return $data ;
     }
-
-    return $client->delete($id) ;
+    
+    public function delteProduct ($id) {    
+        $data = $this->_client->delete($id);
+        return $data ;
+    }
 }

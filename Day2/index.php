@@ -12,9 +12,8 @@ $result = NULL ;
 // the third item $parseURL --> { empty , ? , index.php } will be the root
 // any request will be in the form of localhost/webServices/index.php/resourses/resoursesID
 
-
 if ( isset ($parseURL[4]) ) {
-    
+
     switch($parseURL[4]) {
         
         case 'products' : 
@@ -33,14 +32,14 @@ if ( isset ($parseURL[4]) ) {
             http_response_code(404);
             break;
     }
-
+    if ( isset($result) ){
+        header('Content-Type:application/json');
+        echo json_encode($result , JSON_FORCE_OBJECT);
+    }
+    else {
+        header('Content-Type:application/json');
+        echo json_encode($errors);
+    }
 }
 
-if ( isset($result) ){
-    header('Content-Type:application/json');
-    echo json_encode($result , JSON_FORCE_OBJECT);
-}
-else {
-    header('Content-Type:application/json');
-    echo json_encode($errors);
-}
+

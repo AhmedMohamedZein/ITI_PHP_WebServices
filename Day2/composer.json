@@ -1,6 +1,7 @@
 {
     "description": "A shop api for education purposes",
     "autoload": {
-        "files": ["config.php","modules/MySQLHandler.php" , "routes/products.php" , "controllers/productsControllers.php"]
+        "files": ["config.php" , "routes/products.php"],
+        "classmap": ["controllers","modules"]
     }
 }
